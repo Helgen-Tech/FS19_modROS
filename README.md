@@ -6,7 +6,7 @@ The mod for the landfill compactor is available here https://mods2019portal.com/
 
 To use it download the folder and put it into the mods directory of the farming simulator.
 
-Make sure to buy the Compactor from the shop in game and sell all other vehicles
+Make sure to buy the Compactor from the shop in game and sell all other vehicles to use it with the mod.
 
 ## Development status
 
