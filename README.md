@@ -1,5 +1,13 @@
 # FS19_modROS
 
+## Landfill compactor mod
+
+The mod for the landfill compactor is available here https://mods2019portal.com/farming-simulator-2019-mods/forklifts-excavators/cat-836k-landfill-eiffage-v1.5.html.
+
+To use it download the folder and put it into the mods directory of the farming simulator.
+
+Make sure to buy the Compactor from the shop in game and sell all other vehicles to use it with the mod.
+
 ## Development status
 
 As of 2021-12-08, this mod is not under active development any more.
