@@ -8,7 +8,7 @@ To use it download the folder and put it into the mods directory of the farming 
 
 Make sure to buy the Compactor from the shop in game and sell all other vehicles to use it with the mod.
 
-For more details, follow the instructions available in our [CAT 836K repository] (https://github.com/Helgen-Tech/CAT_836K_Landfill_EIFFAGE) .
+For more details, follow the instructions available in our [CAT 836K repository](https://github.com/Helgen-Tech/CAT_836K_Landfill_EIFFAGE) .
 
 ## Development status
 
