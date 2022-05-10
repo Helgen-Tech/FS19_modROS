@@ -8,6 +8,8 @@ To use it download the folder and put it into the mods directory of the farming 
 
 Make sure to buy the Compactor from the shop in game and sell all other vehicles to use it with the mod.
 
+For more details, follow the instructions available in our [CAT 836K repository] (https://github.com/Helgen-Tech/CAT_836K_Landfill_EIFFAGE).
+
 ## Development status
 
 As of 2021-12-08, this mod is not under active development any more.
@@ -20,8 +22,8 @@ It will most likely remain functional (as FarmSim19 is not expected to change si
 This mod for Farming Simulator 2019 allows autonomous driving of FarmSim vehicles with the ROS navigation stack.
 
 The mod itself is hosted in this repository.
-[tud-cor/fs_mod_ros_windows](https://github.com/tud-cor/fs_mod_ros_windows) contains the companion Python scripts which implement a bridge between `modROS` and ROS 1 (using `rospy`).
-[tud-cor/fs_mod_ros](https://github.com/tud-cor/fs_mod_ros) contains two example ROS packages which show how to interact with FarmSim19 running `modROS`.
+[Helgen-Tech/fs_mod_ros_windows](https://github.com/Helgen-Tech/fs_mod_ros_windows) contains the companion Python scripts which implement a bridge between `modROS` and ROS 1 (using `rospy`).
+[Helgen-Tech /fs_mod_ros](https://github.com/Helgen-Tech/fs_mod_ros) contains two example ROS packages which show how to interact with FarmSim19 running `modROS`.
 
 
 ### ROS message support
@@ -44,7 +46,7 @@ Support for additional message types may be added in the future, but is limited 
 
 `modROS` uses memory modification techniques which *could* be considered harmful by anti-cheat systems which are often included in games with on-line gameplay.
 
-While the manifest clearly marks `modROS` as incompatible with multiplayer game sessions, and the authors have not experienced any problems so far, we feel we must warn users and strongly recommend against ever trying to enable the mod in multiplayer games, nor run any of the scripts in [tud-cor/fs_mod_ros_windows](https://github.com/tud-cor/fs_mod_ros_windows) while playing on-line.
+While the manifest clearly marks `modROS` as incompatible with multiplayer game sessions, and the authors have not experienced any problems so far, we feel we must warn users and strongly recommend against ever trying to enable the mod in multiplayer games, nor run any of the scripts in [Helgen-Tech/fs_mod_ros_windows](https://github.com/Helgen-Tech/fs_mod_ros_windows) while playing on-line.
 Users cannot hold the authors of `modROS` responsible for loss of (on-line or other) functionality in Farming Simulator 19, nor for any damages related to or as a consequence of such loss of functionality.
 
 
@@ -70,11 +72,11 @@ __Note: The following instructions assume the default paths to various system fo
 1. Clone the mod or download the `.zip` at any location
 
     ```cmd
-    git clone https://github.com/tud-cor/FS19_modROS modROS
+    git clone https://github.com/Helgen-Tech/FS19_modROS modROS
     ```
 
 2. Moving mod files to the `mods` directory: 
-In order for FarmSim to detect `modROS`, you either have to move the folder [modROS](https://github.com/tud-cor/FS19_modROS) to the `mods` directory (`%USERPROFILE%\Documents\My Games\FarmingSimulator2019\mods`) or create a symbolic link from the `modROS` folder and drop it in the `FarmingSimulator2019\mods` directory.
+In order for FarmSim to detect `modROS`, you either have to move the folder [modROS](https://github.com/Helgen-Tech/FS19_modROS) to the `mods` directory (`%USERPROFILE%\Documents\My Games\FarmingSimulator2019\mods`) or create a symbolic link from the `modROS` folder and drop it in the `FarmingSimulator2019\mods` directory.
 
     The authors have used [hardlinkshellext/linkshellextension](https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html) which makes this an easy process.
 
@@ -88,7 +90,7 @@ In order for FarmSim to detect `modROS`, you either have to move the folder [mod
 
 
 #### ROS nodes in Windows
-To start transmitting messages between Farmsim and ROS, please first go to [fs_mod_ros_windows](https://github.com/tud-cor/fs_mod_ros_windows). 
+To start transmitting messages between Farmsim and ROS, please first go to [fs_mod_ros_windows](https://github.com/Helgen-Tech/fs_mod_ros_windows). 
 
 #### Optional
 If you would like to have a simulated RGB camera (not required to run navigation stack in ROS) in Farsmsim using screen capture, please refer to [`d3dshot_screen_grabber`](https://github.com/tud-cor/d3dshot_screen_grabber) 
@@ -96,7 +98,7 @@ If you would like to have a simulated RGB camera (not required to run navigation
 
 ## Running
 
-To publish data, you need to first run a ROS node-`all_in_one_publisher.py`. Please follow the instructions [here](https://github.com/tud-cor/fs_mod_ros_windows#publishing-data).
+To publish data, you need to first run a ROS node-`all_in_one_publisher.py`. Please follow the instructions [here](https://github.com/Helgen-Tech/fs_mod_ros_windows#publishing-data).
 
 **Note: Before proceeding to the next step, make sure you see *waiting for client from FarmSim19* in the cmd window**
 
@@ -119,7 +121,7 @@ rosPubMsg false
 
 #### Subscribing data
 
-Please follow the instructions [here](https://github.com/tud-cor/fs_mod_ros_windows#subscribing-data) to run the ROS node- `cm_vel_subscriber.py` first.
+Please follow the instructions [here](https://github.com/Helgen-Tech/fs_mod_ros_windows#subscribing-data) to run the ROS node- `cm_vel_subscriber.py` first.
 
 
 
@@ -153,4 +155,4 @@ forceCenteredCamera false
 ```
 
 #### ROS Navigation stack
-Once you have all the required components, please refer to [fs_mod_ros](https://github.com/tud-cor/fs_mod_ros) to run ROS navigation stack on Linux.
+Once you have all the required components, please refer to [fs_mod_ros](https://github.com/Helgen-Tech/fs_mod_ros) to run ROS navigation stack on Linux.
