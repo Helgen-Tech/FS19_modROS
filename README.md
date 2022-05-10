@@ -77,7 +77,8 @@ __Note: The following instructions assume the default paths to various system fo
 
 2. Moving mod files to the `mods` directory: 
 
-Note: You must launch the game at least once for the mods folder to be visible.
+__Note: You must launch the game at least once for the mods folder to be visible.__
+
 In order for FarmSim to detect `modROS`, you either have to move the folder [modROS](https://github.com/Helgen-Tech/FS19_modROS) to the `mods` directory (`%USERPROFILE%\Documents\My Games\FarmingSimulator2019\mods`) or create a symbolic link from the `modROS` folder and drop it in the `FarmingSimulator2019\mods` directory.
 
     The authors have used [hardlinkshellext/linkshellextension](https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html) which makes this an easy process.
