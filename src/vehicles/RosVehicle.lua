@@ -68,11 +68,7 @@ function RosVehicle:onLoad()
     spec.ros_veh_name_with_id = ros.Names.sanatize(self:getFullName() .. "_" .. self.id)
     spec.ros_veh_name = ros.Names.sanatize(self:getFullName())
     spec.base_link_frame = spec.ros_veh_name_with_id .. "/base_link"
-    if spec.ros_veh_name == "lizard_caterpillar_836k_landfill_eiffage" then
-        spec.component_1_node = self.components[2].node
-    else
-        spec.component_1_node = self.components[1].node
-    end
+    spec.component_1_node = self.components[1].node
     if not spec.component_1_node then
         print(spec.ros_veh_name_with_id .. " does not have components[1].node")
         print("Can not publish odom, scan and imu messages for " ..  spec.ros_veh_name_with_id)
@@ -81,6 +77,7 @@ function RosVehicle:onLoad()
 
     -- if there is no custom laser scanner setting for this vehicle, use the default settings to initialize an object of LaserScanner class
     -- note: a laser scanner is always mounted in the default settings
+    print(spec.ros_veh_name)
     if not mod_config.vehicle[spec.ros_veh_name] then
         spec.laser_scan_obj = LaserScanner.new(self, mod_config.vehicle["default_vehicle"])
     -- if the custom laser scanner is mounted (parameter enabled = true), initialize an object of LaserScanner class

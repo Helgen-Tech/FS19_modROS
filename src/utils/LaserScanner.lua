@@ -160,12 +160,7 @@ function LaserScanner:doScan(ros_time, tf_msg)
 
         -- get the translation from base_link to laser_frame_i
         -- laser_dy is the offset from laser_frame_i to laser_frame_i+1
-        -- lizard_caterpillar_836k_landfill_eiffage base Link is components[2] so LazerScan
-        -- adjusted to match or LazerScan will be off 
         local base_to_laser_x, base_to_laser_y, base_to_laser_z
-        if spec.ros_veh_name == "lizard_caterpillar_836k_landfill_eiffage" then
-            base_to_laser_x, base_to_laser_y, base_to_laser_z = localToLocal(spec.LaserFrameNode, self.vehicle.components[2].node, 0, laser_dy, 0)
-        else
             base_to_laser_x, base_to_laser_y, base_to_laser_z = localToLocal(spec.LaserFrameNode, self.vehicle.components[1].node, 0, laser_dy, 0)
         end
         -- create single TransformStamped message
