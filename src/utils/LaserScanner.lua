@@ -62,19 +62,28 @@ function LaserScanner:getLaserData(laser_scan_array, x, y, z, dx_r, dy, dz_r)
     -- if  self.raycastDistance is updated which mean there is object detected and raycastCallback is called
     -- otherwise, fill the range with self.INIT_RAY_DISTANCE (1000) (no object detected)
     -- if laser_scan.ignore_terrain is set true then ignore the terrain when detected
-
     if self.vehicle_table.laser_scan.ignore_terrain then
         -- this is a temporary method to filter out laser hits on the vehicle itself
         -- in FS, there are many vehicles composed of 2 components: the first component is the main part and the second component is mostly the axis object(s).
         -- however, some driveable vehicles do not have a 2nd component (e.g. diesel_locomotive). We need to exclude the condition of hitting 2nd component, if there exists no 2nd compoenent
+        local CompScan =false
+        if self.vehicle:getAttachedImplements() ~= nil then
+            local attachedImplements = self.vehicle:getAttachedImplements()
+            for _, implement in pairs(attachedImplements) do
+                local object = implement.object
+                if self.raycastTransformId == object.components[1].node then
+                    CompScan = true
+                end
+            end
+        end
         if not self.vehicle.components[2] then
-            if self.raycastDistance ~= self.INIT_RAY_DISTANCE and self.raycastTransformId ~= g_currentMission.terrainRootNode and self.raycastTransformId ~= self.vehicle.components[1].node then
+            if self.raycastDistance ~= self.INIT_RAY_DISTANCE and self.raycastTransformId ~= g_currentMission.terrainRootNode and self.raycastTransformId ~= self.vehicle.components[1].node and CompScan == false then
                 table.insert(laser_scan_array, self.raycastDistance)
             else
                 table.insert(laser_scan_array, self.INIT_RAY_DISTANCE)
             end
         else
-            if self.raycastDistance ~= self.INIT_RAY_DISTANCE and self.raycastTransformId ~= g_currentMission.terrainRootNode and self.raycastTransformId ~= self.vehicle.components[1].node and  self.raycastTransformId ~= self.vehicle.components[2].node  then
+            if self.raycastDistance ~= self.INIT_RAY_DISTANCE and self.raycastTransformId ~= g_currentMission.terrainRootNode and self.raycastTransformId ~= self.vehicle.components[1].node and  self.raycastTransformId ~= self.vehicle.components[2].node and CompScan == false then
                 table.insert(laser_scan_array, self.raycastDistance)
             else
                 table.insert(laser_scan_array, self.INIT_RAY_DISTANCE)
@@ -151,8 +160,9 @@ function LaserScanner:doScan(ros_time, tf_msg)
 
         -- get the translation from base_link to laser_frame_i
         -- laser_dy is the offset from laser_frame_i to laser_frame_i+1
-        local base_to_laser_x, base_to_laser_y, base_to_laser_z = localToLocal(spec.LaserFrameNode, self.vehicle.components[1].node, 0, laser_dy, 0)
-
+        local base_to_laser_x, base_to_laser_y, base_to_laser_z
+            base_to_laser_x, base_to_laser_y, base_to_laser_z = localToLocal(spec.LaserFrameNode, self.vehicle.components[1].node, 0, laser_dy, 0)
+        end
         -- create single TransformStamped message
         local tf_base_link_laser_frame_i = geometry_msgs_TransformStamped.new()
         tf_base_link_laser_frame_i:set(

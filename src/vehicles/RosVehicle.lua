@@ -77,6 +77,7 @@ function RosVehicle:onLoad()
 
     -- if there is no custom laser scanner setting for this vehicle, use the default settings to initialize an object of LaserScanner class
     -- note: a laser scanner is always mounted in the default settings
+    print(spec.ros_veh_name)
     if not mod_config.vehicle[spec.ros_veh_name] then
         spec.laser_scan_obj = LaserScanner.new(self, mod_config.vehicle["default_vehicle"])
     -- if the custom laser scanner is mounted (parameter enabled = true), initialize an object of LaserScanner class
