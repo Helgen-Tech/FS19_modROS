@@ -1,14 +1,14 @@
 # FS19_modROS
 
-## Landfill compactor mod
+## Landfill compactor and Bulldozer mods
 
-The mod for the landfill compactor is available here https://mods2019portal.com/farming-simulator-2019-mods/forklifts-excavators/cat-836k-landfill-eiffage-v1.5.html.
+The mods for the landfill and bulldozer compactors are available in our [CAT 836K](https://github.com/Helgen-Tech/CAT_836K_Landfill_EIFFAGE) and [NMC D11](https://github.com/Helgen-Tech/FS19_nmcD11Bulldozer) repositories.
 
-To use it download the folder and put it into the mods directory of the farming simulator.
+To use any of them download the folder and put it into the mods directory of the farming simulator.
 
-Make sure to buy the Compactor from the shop in game and sell all other vehicles to use it with the mod.
+Make sure to buy the desired vehicle from the shop in game and sell all other vehicles to use it with the mod (in order to prevent several velocity commands to be sent to different vehicles).
 
-For more details, follow the instructions available in our [CAT 836K repository](https://github.com/Helgen-Tech/CAT_836K_Landfill_EIFFAGE) .
+For more details, follow the instructions available in the respositories.
 
 ## Development status
 
@@ -23,6 +23,7 @@ This mod for Farming Simulator 2019 allows autonomous driving of FarmSim vehicle
 
 The mod itself is hosted in this repository.
 [Helgen-Tech/fs_mod_ros_windows](https://github.com/Helgen-Tech/fs_mod_ros_windows) contains the companion Python scripts which implement a bridge between `modROS` and ROS 1 (using `rospy`).
+
 [Helgen-Tech /fs_mod_ros](https://github.com/Helgen-Tech/fs_mod_ros) contains two example ROS packages which show how to interact with FarmSim19 running `modROS`.
 
 
