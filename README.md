@@ -2,13 +2,13 @@
 
 ## Landfill compactor and Bulldozer mods
 
-The mods for the landfill and bulldozer compactors are available in our [CAT 836K](https://github.com/Helgen-Tech/CAT_836K_Landfill_EIFFAGE) and [NMC D11](https://github.com/Helgen-Tech/FS19_nmcD11Bulldozer) repositories.
+The mods for the landfill compactor and bulldozer are available in our [CAT 836K](https://github.com/Helgen-Tech/CAT_836K_Landfill_EIFFAGE) and [NMC D11](https://github.com/Helgen-Tech/FS19_nmcD11Bulldozer) repositories.
 
-To use any of them download the folder and put it into the mods directory of the farming simulator.
+To use any one of them, download the folder and put it into the mods directory of the farming simulator.
 
 Make sure to buy the desired vehicle from the shop in game and sell all other vehicles to use it with the mod (in order to prevent several velocity commands to be sent to different vehicles).
 
-For more details, follow the instructions available in the respositories.
+For more details, follow the instructions available in the repositories.
 
 ## Development status
 
@@ -160,3 +160,13 @@ forceCenteredCamera false
 
 #### ROS Navigation stack
 Once you have all the required components, please refer to [fs_mod_ros](https://github.com/Helgen-Tech/fs_mod_ros) to run ROS navigation stack on Linux.
+
+
+#### Steps to get all the parts up and running
+1. On the Linux host (WSL or remote computer) launch the roscore
+2. Launch the Farming Simulator and start a career game. Important remarks: Make sure that only the vehicle to be controlled is in the inventory. 
+3. Run the all publisher script on a windows console.
+4. In the game use the developer console to run start the channeling: "rosPubMsg true".
+5. On the Linux host launch farmsim_bringup.launch, gmapping.launch, move_base.launch and the rviz visualization.
+6. Run the velocity command subscriber on a second windows console. Important: Currently the script has a bug that prevents it from getting the process name. The PID of the game has to be obtained from the Task Manager and added manually to the script every time the game is launched.
+7. In the game, step out of the vehicle to allow ROS to gain control and use the developer console to give the control to ROS: "rosControlVehicle true".
