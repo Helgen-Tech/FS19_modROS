@@ -161,8 +161,7 @@ function LaserScanner:doScan(ros_time, tf_msg)
         -- get the translation from base_link to laser_frame_i
         -- laser_dy is the offset from laser_frame_i to laser_frame_i+1
         local base_to_laser_x, base_to_laser_y, base_to_laser_z
-            base_to_laser_x, base_to_laser_y, base_to_laser_z = localToLocal(spec.LaserFrameNode, self.vehicle.components[1].node, 0, laser_dy, 0)
-        end
+        base_to_laser_x, base_to_laser_y, base_to_laser_z = localToLocal(spec.LaserFrameNode, self.vehicle.components[1].node, 0, laser_dy, 0)
         -- create single TransformStamped message
         local tf_base_link_laser_frame_i = geometry_msgs_TransformStamped.new()
         tf_base_link_laser_frame_i:set(
